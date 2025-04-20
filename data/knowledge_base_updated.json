@@ -1,0 +1,206 @@
+{
+  "specifications": {
+    "renault_651_4": {
+      "generales": {
+        "modele": "Renault 651 4",
+        "fabricant": "Renault",
+        "periode_production": "1972-1980",
+        "type": "Tracteur agricole à 4 roues motrices (4WD)"
+      },
+      "moteur": {
+        "modele": "MWM D227-4",
+        "type": "Diesel",
+        "cylindres": 4,
+        "cylindree": "3,8 L (230.0 ci)",
+        "alesage_course": "98 x 120 mm (3.875 x 4.724 pouces)",
+        "puissance": "48,5 kW (65 hp)",
+        "regime_nominal": "2350 tr/min",
+        "couple": "206,0 Nm (151.9 lb-ft)",
+        "regime_couple": "1600 tr/min",
+        "capacite_reservoir": "65,1 L (17.2 gal)"
+      },
+      "transmission": {
+        "type": "Mécanique",
+        "vitesses": "12 avant et 3 arrière"
+      },
+      "dimensions": {
+        "empattement": "223 cm (87.8 pouces)",
+        "longueur": "381 cm (150.0 pouces)",
+        "hauteur": "234 cm (92.5 pouces)",
+        "poids_4wd": "3310 kg (7299 lbs)"
+      },
+      "pneumatiques": {
+        "avant_4wd": "11.2-24",
+        "arriere": "16.9-28"
+      },
+      "hydraulique": {
+        "debit_total": "26,1 L/min (6.9 gpm) ou 32,2 L/min (8.5 gpm)",
+        "capacite_levage_arriere": "2000 kg (4410 lbs)"
+      },
+      "pto": {
+        "type_arriere": "540/750 tr/min"
+      },
+      "direction_freins": {
+        "direction": "Hydrostatique assistée",
+        "freins": "Disques secs"
+      },
+      "caracteristiques_supplementaires": {
+        "cabine": "Standard"
+      }
+    },
+    "renault_super_7": {
+      "generales": {
+        "modele": "Renault Super 7",
+        "fabricant": "Renault",
+        "periode_production": "1962-1965",
+        "type": "Tracteur agricole utilitaire à 2 roues motrices"
+      },
+      "moteur": {
+        "modele": "Perkins P3 152",
+        "type": "Diesel",
+        "cylindres": 3,
+        "cylindree": "2,5 L (152.7 ci)",
+        "alesage_course": "91 x 127 mm (3.60 x 5.00 pouces)",
+        "puissance": "31,3 kW (42 hp)",
+        "regime_nominal": "2150 tr/min",
+        "refroidissement": "Liquide",
+        "capacite_reservoir": "40,1 L (10.6 gal)"
+      },
+      "transmission": {
+        "type": "Mécanique",
+        "vitesses": "6 avant et 1 arrière"
+      },
+      "dimensions": {
+        "empattement": "175 cm (68.9 pouces)",
+        "longueur": "312 cm (123.2 pouces)",
+        "hauteur": "153 cm (60.6 pouces)",
+        "poids": "1590 kg (3,506 lbs)"
+      },
+      "pneumatiques": {
+        "avant": "6.50-16",
+        "arriere": "12.4-28"
+      },
+      "hydraulique": {
+        "debit_total": "17,0 L/min (4.5 gpm)"
+      },
+      "pto": {
+        "type_arriere": "540/ground"
+      },
+      "direction_freins": {
+        "direction": "Mécanique",
+        "freins": "Tambour"
+      },
+      "caracteristiques_supplementaires": {
+        "cabine": "Poste de conduite ouvert"
+      }
+    }
+  },
+  "histoire": {
+    "renault_651_4": {
+      "contexte": "Développé pour répondre aux besoins des fermes de taille moyenne",
+      "production": "Près de 25 000 exemplaires toutes versions confondues",
+      "lieu_fabrication": "Usine Renault du Mans, France",
+      "positionnement": "Successeur des modèles populaires comme le Renault D22 (22 ch) et le Renault 56 (46 ch)",
+      "reputation": "Reconnu pour sa fiabilité et sa simplicité",
+      "utilisation": "Principalement utilisé dans les fermes moyennes de polyculture-élevage"
+    },
+    "renault_super_7": {
+      "contexte": "Introduit vers la fin de 1962 dans la série Super de Renault",
+      "production": "Produit à 9878 exemplaires entre 1962 et 1965",
+      "lieu_fabrication": "France",
+      "positionnement": "Similaire à la série N en termes de caractéristiques externes et techniques",
+      "reputation": "Tracteur utilitaire fiable pour les petites et moyennes exploitations",
+      "utilisation": "Travaux agricoles généraux dans les fermes de taille modeste"
+    }
+  },
+  "variantes": {
+    "renault_651": "Version standard à deux roues motrices",
+    "renault_651_4": "Version à quatre roues motrices (4WD)",
+    "renault_651_s": "Version ultérieure (produite à partir de 1980)",
+    "renault_super_7": "Version de base (1962-1965)",
+    "renault_super_7d": "Version améliorée (1965-1969)"
+  },
+  "entretien": {
+    "renault_651_4": {
+      "vidange_moteur": "Toutes les 100 heures de fonctionnement",
+      "vidange_transmission": "Toutes les 200 heures de fonctionnement",
+      "filtre_air": "Nettoyage régulier, remplacement selon conditions d'utilisation",
+      "filtre_carburant": "Remplacement toutes les 200 heures",
+      "graissage": "Points de graissage à vérifier toutes les 50 heures"
+    },
+    "renault_super_7": {
+      "vidange_moteur": "Toutes les 100 heures de fonctionnement",
+      "vidange_transmission": "Toutes les 200 heures de fonctionnement",
+      "filtre_air": "Nettoyage régulier, remplacement selon conditions d'utilisation",
+      "filtre_carburant": "Remplacement toutes les 200 heures",
+      "graissage": "Points de graissage à vérifier toutes les 50 heures"
+    }
+  },
+  "aide_utilisation": {
+    "demarrage": {
+      "verification_avant_demarrage": "Vérifier les niveaux d'huile, de carburant et de liquide de refroidissement avant chaque démarrage",
+      "procedure_demarrage_froid": "Utiliser le système de préchauffage si équipé, attendre que le voyant s'éteigne avant de démarrer",
+      "procedure_demarrage_normal": "Mettre le levier de vitesse au point mort, enfoncer l'embrayage, tourner la clé et accélérer progressivement"
+    },
+    "conduite": {
+      "changement_vitesse": "Toujours utiliser l'embrayage pour changer de vitesse, éviter de forcer le levier",
+      "utilisation_prise_force": "Engager la prise de force uniquement à bas régime moteur",
+      "utilisation_relevage": "Ajuster la position et l'effort selon le type d'outil et les conditions de travail"
+    },
+    "securite": {
+      "precautions_generales": "Ne jamais laisser tourner le moteur dans un espace clos, risque d'intoxication au monoxyde de carbone",
+      "travail_en_pente": "Toujours travailler dans le sens de la pente, jamais perpendiculairement",
+      "transport_route": "Respecter les limitations de vitesse et signaler correctement le véhicule"
+    }
+  },
+  "faq": [
+    {
+      "question": "Quelle est la puissance du tracteur Renault 651 4 ?",
+      "reponse": "Le tracteur Renault 651 4 développe une puissance de 65 chevaux (48,5 kW)."
+    },
+    {
+      "question": "Quelle est la période de production du Renault 651 4 ?",
+      "reponse": "Le Renault 651 4 a été produit entre 1972 et 1980."
+    },
+    {
+      "question": "Quel est le poids du tracteur Renault 651 4 ?",
+      "reponse": "Le Renault 651 4 (version 4 roues motrices) pèse 3310 kg (7299 lbs)."
+    },
+    {
+      "question": "Combien de vitesses possède le Renault 651 4 ?",
+      "reponse": "Le Renault 651 4 dispose de 12 vitesses avant et 3 vitesses arrière."
+    },
+    {
+      "question": "Quel type de moteur équipe le Renault 651 4 ?",
+      "reponse": "Le Renault 651 4 est équipé d'un moteur diesel MWM D227-4 de 4 cylindres."
+    },
+    {
+      "question": "Quelle est la puissance du tracteur Renault Super 7 ?",
+      "reponse": "Le tracteur Renault Super 7 développe une puissance de 42 chevaux (31,3 kW)."
+    },
+    {
+      "question": "Quelle est la période de production du Renault Super 7 ?",
+      "reponse": "Le Renault Super 7 a été produit entre 1962 et 1965."
+    },
+    {
+      "question": "Quel est le poids du tracteur Renault Super 7 ?",
+      "reponse": "Le Renault Super 7 pèse 1590 kg (3506 lbs)."
+    },
+    {
+      "question": "Combien de vitesses possède le Renault Super 7 ?",
+      "reponse": "Le Renault Super 7 dispose de 6 vitesses avant et 1 vitesse arrière."
+    },
+    {
+      "question": "Quel type de moteur équipe le Renault Super 7 ?",
+      "reponse": "Le Renault Super 7 est équipé d'un moteur diesel Perkins P3 152 de 3 cylindres."
+    },
+    {
+      "question": "À quelle fréquence faut-il faire la vidange d'un tracteur Renault ?",
+      "reponse": "Pour les tracteurs Renault 651 4 et Super 7, il est recommandé de faire la vidange moteur toutes les 100 heures de fonctionnement et la vidange de transmission toutes les 200 heures."
+    },
+    {
+      "question": "Comment démarrer correctement un tracteur Renault par temps froid ?",
+      "reponse": "Par temps froid, il est recommandé d'utiliser le système de préchauffage si le tracteur en est équipé, d'attendre que le voyant s'éteigne avant de démarrer, puis de tourner la clé tout en accélérant progressivement."
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "tracteurs": {
+    "Renault_651_4": {
+      "specifications": {
+        "moteur": {
+          "marque": "MWM",
+          "modele": "D227-4",
+          "type": "Diesel 4 cylindres",
+          "cylindree": "3770 cm³",
+          "puissance": "65 ch",
+          "regime_nominal": "2200 tr/min",
+          "refroidissement": "Eau"
+        },
+        "transmission": {
+          "embrayage": "Monodisque à sec",
+          "boite_vitesses": "12 vitesses avant, 3 vitesses arrière",
+          "gammes": "Lente, moyenne, rapide"
+        },
+        "dimensions": {
+          "longueur": "3,70 m",
+          "largeur": "1,95 m",
+          "hauteur": "2,60 m",
+          "empattement": "2,14 m",
+          "garde_au_sol": "0,40 m",
+          "poids": "2800 kg"
+        },
+        "capacites": {
+          "reservoir_carburant": "65 litres",
+          "huile_moteur": "10 litres",
+          "liquide_refroidissement": "18 litres"
+        }
+      },
+      "histoire": {
+        "periode_production": "1972-1980",
+        "usine": "Le Mans, France",
+        "contexte": "Série de tracteurs de puissance moyenne destinés aux exploitations agricoles de taille moyenne",
+        "variantes": ["651 standard", "651-4 à quatre roues motrices", "651-S"]
+      },
+      "poste_commande": {
+        "tableau_bord": {
+          "instruments": [
+            "Compte-tours et compteur horaire",
+            "Indicateur de température d'eau",
+            "Manomètre de pression d'huile",
+            "Voyants de contrôle (charge batterie, pression d'huile, etc.)",
+            "Commutateur d'éclairage et de signalisation",
+            "Commande des clignotants",
+            "Bouton d'avertisseur sonore"
+          ]
+        },
+        "leviers": {
+          "levier_vitesses": "Permet de sélectionner les différentes vitesses d'avancement",
+          "levier_gammes": "Permet de choisir entre les gammes lente, moyenne et rapide",
+          "levier_inverseur": "Pour passer de la marche avant à la marche arrière",
+          "leviers_relevage": "Contrôlent la position et l'effort du relevage hydraulique",
+          "manette_crabotage": "À utiliser tracteur à l'arrêt pour engager les 4 roues motrices",
+          "levier_blocage_differentiel": "Permet de bloquer le différentiel en cas de patinage"
+        },
+        "pedales": {
+          "embrayage": "Pédale d'embrayage principale",
+          "freins": "Pédales de frein indépendantes avec possibilité de verrouillage pour la route",
+          "accelerateur": "Pédale d'accélérateur"
+        }
+      },
+      "differentiel": {
+        "composants": [
+          "Boîtier principal du différentiel",
+          "Couronne et pignon d'attaque",
+          "Satellites (pignons intermédiaires)",
+          "Planétaires (pignons de sortie)",
+          "Roulements à galets coniques",
+          "Système de blocage du différentiel"
+        ],
+        "fonctionnement": "Le différentiel tourne sur 2 roulements à galets coniques qui sont logés dans deux cages de chaque côté du boîtier principal. Le réglage des roulements coniques, ainsi que celui du jeu entre la couronne et le pignon d'attaque, est effectué au moyen de rondelles d'espacement.",
+        "blocage": {
+          "procedure": [
+            "Ralentir le tracteur",
+            "Débrayer",
+            "Appuyer sur la pédale de blocage du différentiel",
+            "Relâcher progressivement l'embrayage",
+            "Relâcher la pédale de blocage une fois la difficulté passée"
+          ],
+          "precautions": "Ne jamais utiliser le blocage du différentiel dans les virages ou à vitesse élevée."
+        }
+      },
+      "prise_force": {
+        "specifications": {
+          "arbre": "Normalisé de 1\"3/8 (34,9 mm)",
+          "regime": "540 tr/min pour 1600 tr/min moteur",
+          "rotation": "Horaire vu de l'arrière"
+        },
+        "utilisation": {
+          "engagement": [
+            "Arrêter le tracteur",
+            "Débrayer",
+            "Mettre le levier de changement de vitesse et de sélection au point mort",
+            "Placer la poignée de prise de force en position embrayée",
+            "Embrayer progressivement"
+          ],
+          "desengagement": [
+            "Débrayer",
+            "Mettre la poignée de prise de force en position débrayée",
+            "Embrayer progressivement"
+          ],
+          "precautions": [
+            "Toujours arrêter la prise de force avant de descendre du tracteur",
+            "Vérifier que les protections de l'arbre de transmission sont en place",
+            "Ne jamais travailler avec des vêtements amples à proximité de la prise de force",
+            "Avant d'effectuer une marche arrière, relever l'outil et ramener à la position neutre le levier de commande de prise de force"
+          ]
+        }
+      },
+      "entretien": {
+        "quotidien": [
+          "Vérification du niveau d'huile moteur",
+          "Vérification du niveau de liquide de refroidissement",
+          "Nettoyage du filtre à air si nécessaire",
+          "Vérification de la pression des pneumatiques"
+        ],
+        "periodique": [
+          "Vidange moteur toutes les 100 heures",
+          "Remplacement du filtre à huile toutes les 200 heures",
+          "Remplacement du filtre à carburant toutes les 400 heures",
+          "Vidange de la transmission toutes les 800 heures"
+        ]
+      }
+    },
+    "Renault_Super_7": {
+      "specifications": {
+        "moteur": {
+          "marque": "Perkins",
+          "modele": "P3 152",
+          "type": "Diesel 3 cylindres",
+          "cylindree": "2502 cm³",
+          "puissance": "42 ch",
+          "regime_nominal": "2000 tr/min",
+          "refroidissement": "Eau"
+        },
+        "transmission": {
+          "embrayage": "Monodisque à sec",
+          "boite_vitesses": "6 vitesses avant, 2 vitesses arrière",
+          "gammes": "Lente et rapide"
+        },
+        "dimensions": {
+          "longueur": "3,30 m",
+          "largeur": "1,75 m",
+          "hauteur": "2,30 m",
+          "empattement": "1,95 m",
+          "garde_au_sol": "0,35 m",
+          "poids": "1950 kg"
+        },
+        "capacites": {
+          "reservoir_carburant": "45 litres",
+          "huile_moteur": "7 litres",
+          "liquide_refroidissement": "12 litres"
+        }
+      },
+      "histoire": {
+        "periode_production": "1962-1968",
+        "usine": "Le Mans, France",
+        "contexte": "Tracteur polyvalent de puissance moyenne destiné aux exploitations agricoles de petite et moyenne taille",
+        "variantes": ["Super 7 essence (R3051)", "Super 7 diesel (R7055)", "Super 7D (R3051)"]
+      },
+      "poste_commande": {
+        "tableau_bord": {
+          "instruments": [
+            "Compte-tours",
+            "Indicateur de température d'eau",
+            "Ampèremètre",
+            "Commutateur d'éclairage",
+            "Bouton d'avertisseur sonore"
+          ]
+        },
+        "leviers": {
+          "levier_vitesses": "Sélection des 6 vitesses avant et 2 arrière",
+          "levier_gammes": "Sélection gamme lente ou rapide",
+          "leviers_relevage": "Contrôle du relevage hydraulique",
+          "levier_blocage_differentiel": "Activation du blocage du différentiel"
+        },
+        "pedales": {
+          "embrayage": "Pédale d'embrayage principale",
+          "freins": "Pédales de frein indépendantes",
+          "accelerateur": "Pédale d'accélérateur"
+        }
+      },
+      "differentiel": {
+        "composants": [
+          "Boîtier de différentiel",
+          "Couronne et pignon conique",
+          "Satellites",
+          "Planétaires"
+        ],
+        "fonctionnement": "Différentiel classique avec couronne et pignon conique, permettant aux roues de tourner à des vitesses différentes dans les virages",
+        "blocage": {
+          "procedure": [
+            "Ralentir le tracteur",
+            "Débrayer",
+            "Actionner le levier de blocage du différentiel",
+            "Embrayer progressivement",
+            "Désactiver le blocage après passage de la difficulté"
+          ],
+          "precautions": "Ne pas utiliser le blocage en virage ou sur route"
+        }
+      },
+      "prise_force": {
+        "specifications": {
+          "arbre": "Normalisé de 1\"3/8 (34,9 mm)",
+          "regime": "540 tr/min",
+          "rotation": "Horaire vu de l'arrière"
+        },
+        "utilisation": {
+          "engagement": [
+            "Arrêter le tracteur",
+            "Débrayer",
+            "Mettre le levier de vitesses au point mort",
+            "Engager la prise de force",
+            "Embrayer progressivement"
+          ],
+          "desengagement": [
+            "Débrayer",
+            "Désengager la prise de force",
+            "Embrayer progressivement"
+          ],
+          "precautions": [
+            "Arrêter la prise de force avant de descendre du tracteur",
+            "Vérifier les protections de l'arbre de transmission",
+            "Éviter les vêtements amples à proximité"
+          ]
+        }
+      },
+      "entretien": {
+        "quotidien": [
+          "Vérification du niveau d'huile moteur",
+          "Vérification du niveau d'eau",
+          "Nettoyage du filtre à air si nécessaire"
+        ],
+        "periodique": [
+          "Vidange moteur toutes les 100 heures",
+          "Remplacement du filtre à huile toutes les 200 heures",
+          "Remplacement du filtre à carburant toutes les 400 heures",
+          "Vidange de la transmission toutes les 800 heures"
+        ]
+      }
+    }
+  },
+  "aide_utilisation": {
+    "demarrage": {
+      "verifications_avant_demarrage": [
+        "Niveau d'huile moteur",
+        "Niveau de liquide de refroidissement",
+        "Niveau de carburant",
+        "Pression des pneumatiques",
+        "État des filtres à air"
+      ],
+      "procedure_standard": [
+        "S'installer au poste de conduite",
+        "Vérifier que le levier de vitesses est au point mort",
+        "Enfoncer la pédale d'embrayage",
+        "Tourner la clé de contact",
+        "Attendre l'extinction des voyants d'alerte",
+        "Relâcher progressivement la pédale d'embrayage"
+      ],
+      "procedure_temps_froid": [
+        "Utiliser le système de démarrage à froid (bougie de préchauffage)",
+        "Maintenir la clé en position préchauffage pendant 10-15 secondes",
+        "Démarrer normalement",
+        "Laisser tourner le moteur au ralenti quelques minutes avant de travailler"
+      ]
+    },
+    "conduite": {
+      "changement_vitesse": [
+        "Débrayer complètement",
+        "Sélectionner la vitesse appropriée",
+        "Relâcher progressivement la pédale d'embrayage",
+        "Pour les changements de gamme, arrêter complètement le tracteur"
+      ],
+      "utilisation_4_roues_motrices": [
+        "Arrêter complètement le tracteur",
+        "Débrayer",
+        "Actionner la manette de crabotage du pont avant",
+        "Embrayer progressivement"
+      ],
+      "utilisation_blocage_differentiel": [
+        "À utiliser uniquement en cas de patinage",
+        "Ralentir le tracteur",
+        "Débrayer",
+        "Actionner la commande de blocage",
+        "Embrayer progressivement",
+        "Désactiver dès que possible"
+      ]
+    },
+    "prise_force": {
+      "connexion_outils": [
+        "Arrêter le moteur",
+        "Vérifier la compatibilité de l'outil avec le régime de la prise de force",
+        "Nettoyer et graisser l'arbre de prise de force",
+        "Connecter l'arbre de transmission de l'outil",
+        "Vérifier que les protections sont en place"
+      ],
+      "utilisation": [
+        "Démarrer le moteur",
+        "Débrayer",
+        "Mettre le levier de vitesses au point mort",
+        "Engager la prise de force",
+        "Embrayer progressivement",
+        "Régler le régime moteur pour obtenir le régime de prise de force requis par l'outil"
+      ],
+      "precautions": [
+        "Ne jamais travailler sans les protections",
+        "Arrêter la prise de force avant de descendre du tracteur",
+        "Ne pas porter de vêtements amples à proximité",
+        "Éviter de faire fonctionner la prise de force à un angle excessif"
+      ]
+    },
+    "relevage_hydraulique": {
+      "commandes": [
+        "Levier de position : contrôle la hauteur de l'outil",
+        "Levier d'effort : régule la profondeur de travail en fonction de la résistance du sol",
+        "Levier de limitation de hauteur : limite la hauteur maximale de relevage",
+        "Molette de vitesse de descente : règle la vitesse de descente de l'outil"
+      ],
+      "reglages": [
+        "Position : pour les outils portés ne travaillant pas dans le sol",
+        "Effort : pour les outils travaillant dans le sol (charrue, cultivateur)",
+        "Mixte : combinaison des deux pour certains outils spécifiques"
+      ],
+      "connexion_outils": [
+        "Approcher le tracteur de l'outil",
+        "Aligner les rotules d'attelage",
+        "Connecter les bras inférieurs",
+        "Connecter le troisième point",
+        "Ajuster la longueur du troisième point pour niveler l'outil",
+        "Connecter les flexibles hydrauliques si nécessaire"
+      ]
+    },
+    "securite": {
+      "regles_generales": [
+        "Lire attentivement le manuel d'utilisation",
+        "Ne jamais laisser conduire le tracteur par une personne non formée",
+        "Ne pas transporter de passagers sauf si le tracteur est équipé d'un siège passager",
+        "Toujours utiliser la ceinture de sécurité si le tracteur est équipé d'un arceau ou d'une cabine",
+        "Ne jamais démarrer le moteur dans un local fermé"
+      ],
+      "travail_en_pente": [
+        "Éviter de travailler perpendiculairement à la pente",
+        "Réduire la vitesse",
+        "Éviter les virages brusques",
+        "Utiliser les 4 roues motrices si disponibles",
+        "Ne pas débrayer en descente"
+      ],
+      "entretien": [
+        "Arrêter le moteur avant toute intervention",
+        "Attendre le refroidissement du moteur pour les interventions sur le circuit de refroidissement",
+        "Caler le tracteur pour travailler sous celui-ci",
+        "Utiliser des chandelles homologuées",
+        "Ne pas fumer lors des opérations sur le circuit de carburant"
+      ]
+    }
+  }
+}
