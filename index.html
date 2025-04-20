@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Tracteur Renault</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo Renault Tracteur">
+                <h1>Chatbot Tracteur Renault</h1>
+            </div>
+            <div class="controls">
+                <select id="model-selector">
+                    <option value="651-4">Renault 651-4</option>
+                    <option value="Super 7">Renault Super 7</option>
+                </select>
+                <button id="help-button">Aide</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Posez votre question sur le tracteur...">
+                    <button id="send-button">Envoyer</button>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="specifications">Spécifications</button>
+                    <button class="tab-button" data-tab="history">Histoire</button>
+                    <button class="tab-button" data-tab="gallery">Galerie</button>
+                    <button class="tab-button" data-tab="help">Aide à l'utilisation</button>
+                    <button class="tab-button" data-tab="pdf">Documentation PDF</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="specifications" class="tab-pane active">
+                        <h2>Spécifications Techniques</h2>
+                        <div class="specs-container">
+                            <div class="specs-section">
+                                <h3>Moteur</h3>
+                                <table>
+                                    <tr>
+                                        <td>Modèle:</td>
+                                        <td id="engine-model">MWM D227-4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type:</td>
+                                        <td id="engine-type">Diesel 4 cylindres</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Puissance:</td>
+                                        <td id="engine-power">65 ch (48 kW)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cylindrée:</td>
+                                        <td id="engine-displacement">3770 cm³</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Refroidissement:</td>
+                                        <td id="engine-cooling">Par eau</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="specs-section">
+                                <h3>Transmission</h3>
+                                <table>
+                                    <tr>
+                                        <td>Type:</td>
+                                        <td id="transmission-type">Mécanique</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vitesses:</td>
+                                        <td id="transmission-speeds">12 avant / 3 arrière</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Embrayage:</td>
+                                        <td id="transmission-clutch">Monodisque à sec</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="specs-section">
+                                <h3>Dimensions</h3>
+                                <table>
+                                    <tr>
+                                        <td>Longueur:</td>
+                                        <td id="dimensions-length">3617 mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Largeur:</td>
+                                        <td id="dimensions-width">1980 mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hauteur:</td>
+                                        <td id="dimensions-height">2360 mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empattement:</td>
+                                        <td id="dimensions-wheelbase">2242 mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Poids:</td>
+                                        <td id="dimensions-weight">2945 kg</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="specs-section">
+                                <h3>Hydraulique et PTO</h3>
+                                <table>
+                                    <tr>
+                                        <td>Relevage:</td>
+                                        <td id="hydraulic-lift">Tracto-Control</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Capacité de levage:</td>
+                                        <td id="hydraulic-capacity">2400 kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PTO arrière:</td>
+                                        <td id="pto-rear">540/1000 tr/min</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="history" class="tab-pane">
+                        <h2>Histoire et Contexte</h2>
+                        <div class="history-content">
+                            <div class="history-section">
+                                <h3>Historique du modèle</h3>
+                                <p id="model-history">Le Renault 651-4 fait partie de la gamme moyenne des tracteurs Renault produite à partir de 1972 à l'usine du Mans. Cette série a été conçue pour répondre aux besoins des agriculteurs français et européens en matière de puissance et de polyvalence. Le 651-4 est la version à quatre roues motrices du modèle 651 standard, offrant une meilleure traction et stabilité sur tous types de terrains.</p>
+                            </div>
+
+                            <div class="history-section">
+                                <h3>Contexte agricole</h3>
+                                <p id="agricultural-context">Dans les années 1970, l'agriculture française connaît une période de modernisation importante. Les tracteurs comme le Renault 651-4 ont joué un rôle crucial dans cette transformation, permettant aux agriculteurs d'augmenter leur productivité grâce à des machines plus puissantes et polyvalentes. La version 4 roues motrices répondait particulièrement aux besoins des exploitations en zones difficiles ou montagneuses.</p>
+                            </div>
+
+                            <div class="history-section">
+                                <h3>Évolution et variantes</h3>
+                                <p id="evolution-variants">Le Renault 651-4 a connu plusieurs évolutions au cours de sa production qui s'est étendue jusqu'en 1980. Plusieurs variantes ont été proposées, notamment le 651 standard (2 roues motrices), le 651-4 (4 roues motrices) et le 651-S (version spéciale). Ces tracteurs ont été remplacés par la série 90 à partir de 1981, qui intégrait des améliorations en termes de confort et de performances.</p>
+                            </div>
+
+                            <div class="history-section">
+                                <h3>Héritage</h3>
+                                <p id="legacy">Aujourd'hui, les Renault 651-4 sont devenus des tracteurs de collection appréciés pour leur fiabilité et leur robustesse. Ils représentent une période importante de l'histoire de la mécanisation agricole en France et en Europe. Certains exemplaires sont encore utilisés dans de petites exploitations ou pour des travaux spécifiques, témoignant de leur durabilité exceptionnelle.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="gallery" class="tab-pane">
+                        <h2>Galerie des Commandes</h2>
+                        <div id="commands-gallery" class="gallery-container">
+                            <!-- Le contenu sera généré dynamiquement par JavaScript -->
+                        </div>
+                    </div>
+
+                    <div id="help" class="tab-pane">
+                        <h2>Aide à l'Utilisation</h2>
+                        <div class="help-content">
+                            <div class="help-section">
+                                <h3>Guide de démarrage</h3>
+                                <div class="help-subsection">
+                                    <h4>Vérifications avant démarrage</h4>
+                                    <ul>
+                                        <li>Vérifier le niveau d'huile moteur</li>
+                                        <li>Vérifier le niveau de carburant</li>
+                                        <li>Vérifier le niveau d'eau du radiateur</li>
+                                        <li>Vérifier la pression des pneus</li>
+                                        <li>S'assurer que tous les leviers sont au point mort</li>
+                                    </ul>
+                                </div>
+                                <div class="help-subsection">
+                                    <h4>Procédure de démarrage</h4>
+                                    <ol>
+                                        <li>S'installer sur le siège du conducteur</li>
+                                        <li>Mettre le levier de vitesses au point mort</li>
+                                        <li>Enfoncer la pédale d'embrayage</li>
+                                        <li>Tourner la clé de contact en position préchauffage pendant 10 secondes par temps froid</li>
+                                        <li>Tourner la clé en position démarrage</li>
+                                        <li>Relâcher la clé dès que le moteur démarre</li>
+                                        <li>Laisser chauffer le moteur quelques minutes avant de commencer à travailler</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="help-section">
+                                <h3>Conduite et utilisation</h3>
+                                <div class="help-subsection">
+                                    <h4>Changement de vitesse</h4>
+                                    <ol>
+                                        <li>Enfoncer complètement la pédale d'embrayage</li>
+                                        <li>Sélectionner la vitesse désirée</li>
+                                        <li>Relâcher progressivement la pédale d'embrayage</li>
+                                        <li>Pour changer de gamme, arrêter complètement le tracteur</li>
+                                    </ol>
+                                </div>
+                                <div class="help-subsection">
+                                    <h4>Utilisation de la prise de force</h4>
+                                    <ol>
+                                        <li>Arrêter le tracteur et mettre le moteur au ralenti</li>
+                                        <li>Enfoncer la pédale d'embrayage</li>
+                                        <li>Engager le levier de prise de force</li>
+                                        <li>Relâcher progressivement la pédale d'embrayage</li>
+                                        <li>Augmenter progressivement le régime moteur</li>
+                                    </ol>
+                                </div>
+                                <div class="help-subsection">
+                                    <h4>Utilisation du relevage hydraulique</h4>
+                                    <ol>
+                                        <li>Utiliser le levier principal pour monter ou descendre l'outil</li>
+                                        <li>Régler la position avec le levier de contrôle d'effort</li>
+                                        <li>Ajuster la vitesse de descente avec la molette dédiée</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="help-section">
+                                <h3>Entretien courant</h3>
+                                <div class="help-subsection">
+                                    <h4>Entretien quotidien</h4>
+                                    <ul>
+                                        <li>Vérifier les niveaux d'huile et de liquide de refroidissement</li>
+                                        <li>Nettoyer le filtre à air si nécessaire</li>
+                                        <li>Vérifier la pression des pneus</li>
+                                        <li>Vérifier le bon fonctionnement des freins</li>
+                                    </ul>
+                                </div>
+                                <div class="help-subsection">
+                                    <h4>Entretien périodique</h4>
+                                    <ul>
+                                        <li>Toutes les 100 heures : Changer l'huile moteur et le filtre</li>
+                                        <li>Toutes les 200 heures : Vérifier et régler les soupapes</li>
+                                        <li>Toutes les 400 heures : Changer l'huile de transmission</li>
+                                        <li>Toutes les 800 heures : Changer le liquide de refroidissement</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="help-section">
+                                <h3>Consignes de sécurité</h3>
+                                <ul>
+                                    <li>Ne jamais démarrer le tracteur dans un local fermé</li>
+                                    <li>Toujours utiliser la ceinture de sécurité si le tracteur est équipé d'un arceau ou d'une cabine</li>
+                                    <li>Ne jamais descendre du tracteur en marche</li>
+                                    <li>Bloquer les freins ensemble pour la conduite sur route</li>
+                                    <li>Ne jamais transporter de passagers sauf si le tracteur est équipé d'un siège passager</li>
+                                    <li>Toujours abaisser les outils au sol avant de quitter le tracteur</li>
+                                    <li>Utiliser le blocage de différentiel uniquement en ligne droite</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pdf" class="tab-pane">
+                        <h2>Documentation PDF</h2>
+                        <div id="pdf-section" class="pdf-container">
+                            <!-- Le contenu sera généré dynamiquement par JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Chatbot Tracteur Renault 651-4 et Super 7 - Développé pour vous aider à comprendre et utiliser ces tracteurs légendaires</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
