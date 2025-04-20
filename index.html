@@ -4,280 +4,741 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Tracteur Renault</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Styles de base */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 2px solid #f0ad4e;
+        }
+        
+        .logo {
+            height: 60px;
+        }
+        
+        .header-title {
+            color: #e67e22;
+            font-size: 28px;
+            margin: 0;
+        }
+        
+        .model-selector {
+            display: flex;
+            gap: 10px;
+        }
+        
+        select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .help-button {
+            background-color: #f0ad4e;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* Chat section */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background-color: #e6f7ff;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+        
+        .bot-message {
+            background-color: #f0f0f0;
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+        
+        .chat-input-container {
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .send-button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        
+        .tab-button.active {
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+            margin-bottom: -1px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .model-selector {
+                margin-top: 10px;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-button {
+                margin-bottom: 5px;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">
-                <img src="images/logo.png" alt="Logo Renault Tracteur">
-                <h1>Chatbot Tracteur Renault</h1>
-            </div>
-            <div class="controls">
+            <img src="images/logo.png" alt="Logo Renault Tracteur" class="logo">
+            <h1 class="header-title">Chatbot Tracteur Renault</h1>
+            <div class="model-selector">
                 <select id="model-selector">
                     <option value="651-4">Renault 651-4</option>
                     <option value="Super 7">Renault Super 7</option>
                 </select>
-                <button id="help-button">Aide</button>
+                <button id="help-button" class="help-button">Aide</button>
             </div>
         </header>
-
-        <main>
-            <div class="chat-container">
-                <div id="chat-messages" class="chat-messages"></div>
-                <div class="chat-input-container">
-                    <input type="text" id="chat-input" placeholder="Posez votre question sur le tracteur...">
-                    <button id="send-button">Envoyer</button>
-                </div>
+        
+        <div class="chat-container">
+            <div id="chat-messages" class="chat-messages">
+                <!-- Les messages seront ajoutés ici par JavaScript -->
             </div>
-
-            <div class="tabs">
-                <div class="tab-buttons">
-                    <button class="tab-button active" data-tab="specifications">Spécifications</button>
-                    <button class="tab-button" data-tab="history">Histoire</button>
-                    <button class="tab-button" data-tab="gallery">Galerie</button>
-                    <button class="tab-button" data-tab="help">Aide à l'utilisation</button>
-                    <button class="tab-button" data-tab="pdf">Documentation PDF</button>
-                </div>
-
-                <div class="tab-content">
-                    <div id="specifications" class="tab-pane active">
-                        <h2>Spécifications Techniques</h2>
-                        <div class="specs-container">
-                            <div class="specs-section">
-                                <h3>Moteur</h3>
-                                <table>
-                                    <tr>
-                                        <td>Modèle:</td>
-                                        <td id="engine-model">MWM D227-4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Type:</td>
-                                        <td id="engine-type">Diesel 4 cylindres</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Puissance:</td>
-                                        <td id="engine-power">65 ch (48 kW)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cylindrée:</td>
-                                        <td id="engine-displacement">3770 cm³</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Refroidissement:</td>
-                                        <td id="engine-cooling">Par eau</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="specs-section">
-                                <h3>Transmission</h3>
-                                <table>
-                                    <tr>
-                                        <td>Type:</td>
-                                        <td id="transmission-type">Mécanique</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Vitesses:</td>
-                                        <td id="transmission-speeds">12 avant / 3 arrière</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Embrayage:</td>
-                                        <td id="transmission-clutch">Monodisque à sec</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="specs-section">
-                                <h3>Dimensions</h3>
-                                <table>
-                                    <tr>
-                                        <td>Longueur:</td>
-                                        <td id="dimensions-length">3617 mm</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Largeur:</td>
-                                        <td id="dimensions-width">1980 mm</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hauteur:</td>
-                                        <td id="dimensions-height">2360 mm</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Empattement:</td>
-                                        <td id="dimensions-wheelbase">2242 mm</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Poids:</td>
-                                        <td id="dimensions-weight">2945 kg</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="specs-section">
-                                <h3>Hydraulique et PTO</h3>
-                                <table>
-                                    <tr>
-                                        <td>Relevage:</td>
-                                        <td id="hydraulic-lift">Tracto-Control</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Capacité de levage:</td>
-                                        <td id="hydraulic-capacity">2400 kg</td>
-                                    </tr>
-                                    <tr>
-                                        <td>PTO arrière:</td>
-                                        <td id="pto-rear">540/1000 tr/min</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="history" class="tab-pane">
-                        <h2>Histoire et Contexte</h2>
-                        <div class="history-content">
-                            <div class="history-section">
-                                <h3>Historique du modèle</h3>
-                                <p id="model-history">Le Renault 651-4 fait partie de la gamme moyenne des tracteurs Renault produite à partir de 1972 à l'usine du Mans. Cette série a été conçue pour répondre aux besoins des agriculteurs français et européens en matière de puissance et de polyvalence. Le 651-4 est la version à quatre roues motrices du modèle 651 standard, offrant une meilleure traction et stabilité sur tous types de terrains.</p>
-                            </div>
-
-                            <div class="history-section">
-                                <h3>Contexte agricole</h3>
-                                <p id="agricultural-context">Dans les années 1970, l'agriculture française connaît une période de modernisation importante. Les tracteurs comme le Renault 651-4 ont joué un rôle crucial dans cette transformation, permettant aux agriculteurs d'augmenter leur productivité grâce à des machines plus puissantes et polyvalentes. La version 4 roues motrices répondait particulièrement aux besoins des exploitations en zones difficiles ou montagneuses.</p>
-                            </div>
-
-                            <div class="history-section">
-                                <h3>Évolution et variantes</h3>
-                                <p id="evolution-variants">Le Renault 651-4 a connu plusieurs évolutions au cours de sa production qui s'est étendue jusqu'en 1980. Plusieurs variantes ont été proposées, notamment le 651 standard (2 roues motrices), le 651-4 (4 roues motrices) et le 651-S (version spéciale). Ces tracteurs ont été remplacés par la série 90 à partir de 1981, qui intégrait des améliorations en termes de confort et de performances.</p>
-                            </div>
-
-                            <div class="history-section">
-                                <h3>Héritage</h3>
-                                <p id="legacy">Aujourd'hui, les Renault 651-4 sont devenus des tracteurs de collection appréciés pour leur fiabilité et leur robustesse. Ils représentent une période importante de l'histoire de la mécanisation agricole en France et en Europe. Certains exemplaires sont encore utilisés dans de petites exploitations ou pour des travaux spécifiques, témoignant de leur durabilité exceptionnelle.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="gallery" class="tab-pane">
-                        <h2>Galerie des Commandes</h2>
-                        <div id="commands-gallery" class="gallery-container">
-                            <!-- Le contenu sera généré dynamiquement par JavaScript -->
-                        </div>
-                    </div>
-
-                    <div id="help" class="tab-pane">
-                        <h2>Aide à l'Utilisation</h2>
-                        <div class="help-content">
-                            <div class="help-section">
-                                <h3>Guide de démarrage</h3>
-                                <div class="help-subsection">
-                                    <h4>Vérifications avant démarrage</h4>
-                                    <ul>
-                                        <li>Vérifier le niveau d'huile moteur</li>
-                                        <li>Vérifier le niveau de carburant</li>
-                                        <li>Vérifier le niveau d'eau du radiateur</li>
-                                        <li>Vérifier la pression des pneus</li>
-                                        <li>S'assurer que tous les leviers sont au point mort</li>
-                                    </ul>
-                                </div>
-                                <div class="help-subsection">
-                                    <h4>Procédure de démarrage</h4>
-                                    <ol>
-                                        <li>S'installer sur le siège du conducteur</li>
-                                        <li>Mettre le levier de vitesses au point mort</li>
-                                        <li>Enfoncer la pédale d'embrayage</li>
-                                        <li>Tourner la clé de contact en position préchauffage pendant 10 secondes par temps froid</li>
-                                        <li>Tourner la clé en position démarrage</li>
-                                        <li>Relâcher la clé dès que le moteur démarre</li>
-                                        <li>Laisser chauffer le moteur quelques minutes avant de commencer à travailler</li>
-                                    </ol>
-                                </div>
-                            </div>
-
-                            <div class="help-section">
-                                <h3>Conduite et utilisation</h3>
-                                <div class="help-subsection">
-                                    <h4>Changement de vitesse</h4>
-                                    <ol>
-                                        <li>Enfoncer complètement la pédale d'embrayage</li>
-                                        <li>Sélectionner la vitesse désirée</li>
-                                        <li>Relâcher progressivement la pédale d'embrayage</li>
-                                        <li>Pour changer de gamme, arrêter complètement le tracteur</li>
-                                    </ol>
-                                </div>
-                                <div class="help-subsection">
-                                    <h4>Utilisation de la prise de force</h4>
-                                    <ol>
-                                        <li>Arrêter le tracteur et mettre le moteur au ralenti</li>
-                                        <li>Enfoncer la pédale d'embrayage</li>
-                                        <li>Engager le levier de prise de force</li>
-                                        <li>Relâcher progressivement la pédale d'embrayage</li>
-                                        <li>Augmenter progressivement le régime moteur</li>
-                                    </ol>
-                                </div>
-                                <div class="help-subsection">
-                                    <h4>Utilisation du relevage hydraulique</h4>
-                                    <ol>
-                                        <li>Utiliser le levier principal pour monter ou descendre l'outil</li>
-                                        <li>Régler la position avec le levier de contrôle d'effort</li>
-                                        <li>Ajuster la vitesse de descente avec la molette dédiée</li>
-                                    </ol>
-                                </div>
-                            </div>
-
-                            <div class="help-section">
-                                <h3>Entretien courant</h3>
-                                <div class="help-subsection">
-                                    <h4>Entretien quotidien</h4>
-                                    <ul>
-                                        <li>Vérifier les niveaux d'huile et de liquide de refroidissement</li>
-                                        <li>Nettoyer le filtre à air si nécessaire</li>
-                                        <li>Vérifier la pression des pneus</li>
-                                        <li>Vérifier le bon fonctionnement des freins</li>
-                                    </ul>
-                                </div>
-                                <div class="help-subsection">
-                                    <h4>Entretien périodique</h4>
-                                    <ul>
-                                        <li>Toutes les 100 heures : Changer l'huile moteur et le filtre</li>
-                                        <li>Toutes les 200 heures : Vérifier et régler les soupapes</li>
-                                        <li>Toutes les 400 heures : Changer l'huile de transmission</li>
-                                        <li>Toutes les 800 heures : Changer le liquide de refroidissement</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="help-section">
-                                <h3>Consignes de sécurité</h3>
-                                <ul>
-                                    <li>Ne jamais démarrer le tracteur dans un local fermé</li>
-                                    <li>Toujours utiliser la ceinture de sécurité si le tracteur est équipé d'un arceau ou d'une cabine</li>
-                                    <li>Ne jamais descendre du tracteur en marche</li>
-                                    <li>Bloquer les freins ensemble pour la conduite sur route</li>
-                                    <li>Ne jamais transporter de passagers sauf si le tracteur est équipé d'un siège passager</li>
-                                    <li>Toujours abaisser les outils au sol avant de quitter le tracteur</li>
-                                    <li>Utiliser le blocage de différentiel uniquement en ligne droite</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="pdf" class="tab-pane">
-                        <h2>Documentation PDF</h2>
-                        <div id="pdf-section" class="pdf-container">
-                            <!-- Le contenu sera généré dynamiquement par JavaScript -->
-                        </div>
-                    </div>
-                </div>
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Posez votre question sur le tracteur...">
+                <button id="send-button" class="send-button">Envoyer</button>
             </div>
-        </main>
-
-        <footer>
-            <p>Chatbot Tracteur Renault 651-4 et Super 7 - Développé pour vous aider à comprendre et utiliser ces tracteurs légendaires</p>
-        </footer>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="specifications-tab">Spécifications</button>
+            <button class="tab-button" data-tab="history-tab">Histoire</button>
+            <button class="tab-button" data-tab="gallery-tab">Galerie</button>
+            <button class="tab-button" data-tab="help-tab">Aide à l'utilisation</button>
+            <button class="tab-button" data-tab="pdf-tab">Documentation PDF</button>
+        </div>
+        
+        <div id="specifications-tab" class="tab-content">
+            <h2>Spécifications Techniques</h2>
+            
+            <h3>Moteur</h3>
+            <table>
+                <tr>
+                    <td>Modèle:</td>
+                    <td>MWM D227-4</td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>Diesel 4 cylindres</td>
+                </tr>
+                <tr>
+                    <td>Puissance:</td>
+                    <td>65 ch (48 kW)</td>
+                </tr>
+                <tr>
+                    <td>Cylindrée:</td>
+                    <td>3770 cm³</td>
+                </tr>
+                <tr>
+                    <td>Refroidissement:</td>
+                    <td>Par eau</td>
+                </tr>
+            </table>
+            
+            <h3>Transmission</h3>
+            <table>
+                <tr>
+                    <td>Type:</td>
+                    <td>Mécanique</td>
+                </tr>
+                <tr>
+                    <td>Vitesses:</td>
+                    <td>12 avant / 3 arrière</td>
+                </tr>
+                <tr>
+                    <td>Embrayage:</td>
+                    <td>Monodisque à sec</td>
+                </tr>
+            </table>
+            
+            <h3>Dimensions</h3>
+            <table>
+                <tr>
+                    <td>Longueur:</td>
+                    <td>3617 mm</td>
+                </tr>
+                <tr>
+                    <td>Largeur:</td>
+                    <td>1980 mm</td>
+                </tr>
+                <tr>
+                    <td>Hauteur:</td>
+                    <td>2360 mm</td>
+                </tr>
+                <tr>
+                    <td>Empattement:</td>
+                    <td>2242 mm</td>
+                </tr>
+                <tr>
+                    <td>Poids:</td>
+                    <td>2945 kg</td>
+                </tr>
+            </table>
+            
+            <h3>Hydraulique et PTO</h3>
+            <table>
+                <tr>
+                    <td>Relevage:</td>
+                    <td>Tracto-Control</td>
+                </tr>
+                <tr>
+                    <td>Capacité de levage:</td>
+                    <td>2400 kg</td>
+                </tr>
+                <tr>
+                    <td>PTO arrière:</td>
+                    <td>540/1000 tr/min</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="history-tab" class="tab-content">
+            <h2>Histoire et Contexte</h2>
+            <p>Le Renault 651-4 est un tracteur agricole produit par Renault Agriculture entre 1972 et 1980 à l'usine du Mans. Il fait partie de la série 651 qui comprend également les modèles 651 standard (2 roues motrices) et 651-S (version simplifiée).</p>
+            
+            <p>Ce tracteur a été conçu pour répondre aux besoins des exploitations agricoles de taille moyenne, offrant un bon compromis entre puissance, maniabilité et polyvalence. Le suffixe "4" dans 651-4 indique qu'il s'agit de la version à quatre roues motrices, ce qui lui confère une excellente motricité dans les terrains difficiles.</p>
+            
+            <p>Le Renault 651-4 a connu un grand succès commercial en France et dans plusieurs pays européens, notamment grâce à sa robustesse et sa fiabilité. Il est aujourd'hui considéré comme un tracteur de collection recherché par les amateurs de matériel agricole ancien.</p>
+            
+            <h3>Contexte historique</h3>
+            <p>Dans les années 1970, l'agriculture française connaît une période de modernisation importante. Les tracteurs deviennent plus puissants et plus sophistiqués pour répondre aux exigences croissantes de productivité. Le Renault 651-4 s'inscrit dans cette tendance, avec l'introduction de technologies comme la transmission synchronisée à 12 vitesses et le relevage hydraulique Tracto-Control.</p>
+            
+            <p>Renault Agriculture (anciennement SOMECA) était alors un acteur majeur du marché des tracteurs en France, avant son rachat par Claas en 2003. La série 651 représente une étape importante dans l'histoire de la marque, marquant la transition vers des tracteurs plus modernes et plus performants.</p>
+        </div>
+        
+        <div id="gallery-tab" class="tab-content">
+            <h2>Galerie d'Images</h2>
+            
+            <h3>Renault 651-4</h3>
+            <div class="image-container">
+                <img src="images/renault_651.jpeg" alt="Tracteur Renault 651-4" style="max-width: 100%; margin-bottom: 20px;">
+                <p><strong>Tracteur Renault 651-4</strong> - Vue d'ensemble</p>
+            </div>
+            
+            <div class="image-container">
+                <img src="images/commandes/poste_commande_renault_651.png" alt="Poste de commande Renault 651-4" style="max-width: 100%; margin-bottom: 20px;">
+                <p><strong>Poste de commande du Renault 651-4</strong> - Vue détaillée du tableau de bord et des leviers</p>
+            </div>
+            
+            <h3>Renault Super 7</h3>
+            <div class="image-container">
+                <img src="images/renault_super_7.jpeg" alt="Tracteur Renault Super 7" style="max-width: 100%; margin-bottom: 20px;">
+                <p><strong>Tracteur Renault Super 7</strong> - Vue d'ensemble</p>
+            </div>
+            
+            <h3>Schémas techniques</h3>
+            <div class="image-container">
+                <img src="images/differentiel_schema.png" alt="Schéma du différentiel" style="max-width: 100%; margin-bottom: 20px;">
+                <p><strong>Schéma du différentiel</strong> - Vue éclatée avec identification des composants</p>
+            </div>
+        </div>
+        
+        <div id="help-tab" class="tab-content">
+            <h2>Aide à l'utilisation</h2>
+            
+            <h3>Démarrage</h3>
+            <ol>
+                <li><strong>Vérifications avant démarrage</strong>
+                    <ul>
+                        <li>Contrôler le niveau d'huile moteur</li>
+                        <li>Vérifier le niveau de carburant</li>
+                        <li>S'assurer que le frein à main est serré</li>
+                        <li>Mettre le levier de vitesses au point mort</li>
+                    </ul>
+                </li>
+                <li><strong>Procédure de démarrage</strong>
+                    <ul>
+                        <li>Insérer la clé de contact</li>
+                        <li>Tourner la clé en position préchauffage pendant 10 secondes (par temps froid)</li>
+                        <li>Tourner complètement la clé pour démarrer le moteur</li>
+                        <li>Laisser chauffer le moteur pendant 2-3 minutes avant de commencer à travailler</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Conduite</h3>
+            <ol>
+                <li><strong>Changement de vitesse</strong>
+                    <ul>
+                        <li>Appuyer à fond sur la pédale d'embrayage</li>
+                        <li>Sélectionner la vitesse souhaitée</li>
+                        <li>Relâcher progressivement la pédale d'embrayage</li>
+                    </ul>
+                </li>
+                <li><strong>Utilisation des 4 roues motrices (651-4 uniquement)</strong>
+                    <ul>
+                        <li>Engager les 4 roues motrices uniquement lorsque le tracteur est à l'arrêt</li>
+                        <li>Utiliser le levier dédié situé à droite du siège</li>
+                        <li>Désengager les 4 roues motrices pour la conduite sur route</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Utilisation de la prise de force</h3>
+            <ol>
+                <li><strong>Connexion d'un outil</strong>
+                    <ul>
+                        <li>Arrêter le moteur</li>
+                        <li>S'assurer que le levier de prise de force est en position neutre</li>
+                        <li>Connecter l'arbre de transmission de l'outil à la prise de force</li>
+                        <li>Vérifier que les protections sont en place</li>
+                    </ul>
+                </li>
+                <li><strong>Activation de la prise de force</strong>
+                    <ul>
+                        <li>Démarrer le moteur</li>
+                        <li>Appuyer sur la pédale d'embrayage</li>
+                        <li>Engager le levier de prise de force</li>
+                        <li>Relâcher progressivement la pédale d'embrayage</li>
+                        <li>Ajuster le régime moteur selon les besoins de l'outil</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Entretien</h3>
+            <ul>
+                <li><strong>Entretien quotidien</strong>
+                    <ul>
+                        <li>Vérifier les niveaux d'huile et de liquide de refroidissement</li>
+                        <li>Nettoyer le filtre à air si nécessaire</li>
+                        <li>Vérifier la pression des pneus</li>
+                    </ul>
+                </li>
+                <li><strong>Entretien périodique</strong>
+                    <ul>
+                        <li>Changer l'huile moteur toutes les 100 heures de fonctionnement</li>
+                        <li>Remplacer le filtre à carburant toutes les 200 heures</li>
+                        <li>Vérifier et ajuster le jeu des soupapes toutes les 500 heures</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Consignes de sécurité</h3>
+            <ul>
+                <li>Ne jamais démarrer le tracteur dans un espace clos sans ventilation adéquate</li>
+                <li>Toujours utiliser la ceinture de sécurité si le tracteur est équipé d'un arceau ou d'une cabine</li>
+                <li>Ne jamais descendre du tracteur en laissant le moteur en marche</li>
+                <li>Maintenir les enfants et les personnes non autorisées à distance du tracteur en fonctionnement</li>
+                <li>Utiliser les feux de signalisation lors des déplacements sur route</li>
+            </ul>
+        </div>
+        
+        <div id="pdf-tab" class="tab-content">
+            <h2>Documentation PDF</h2>
+            
+            <h3>Renault 651-4</h3>
+            <ul>
+                <li><a href="pdf/Renault_551_556_651_652_656.pdf" target="_blank">Manuel technique complet (95 pages)</a> - Contient les spécifications détaillées, les procédures d'entretien et les vues éclatées des composants.</li>
+            </ul>
+            
+            <h3>Renault Super 7</h3>
+            <ul>
+                <li><a href="pdf/Renault_R7054_R7055_manuel_reparation.pdf" target="_blank">Manuel de réparation (30 pages)</a> - Contient les procédures de démontage, réparation et remontage des principaux composants.</li>
+            </ul>
+            
+            <p><strong>Note:</strong> Ces documents sont fournis à titre informatif et éducatif. Ils sont issus de sources publiques et ne sont pas des publications officielles de Renault Agriculture.</p>
+        </div>
     </div>
-
-    <script src="js/app.js"></script>
+    
+    <script>
+        // Script corrigé pour le chatbot Tracteur Renault
+document.addEventListener('DOMContentLoaded', function() {
+    // Éléments du DOM
+    const chatInput = document.getElementById('chat-input');
+    const sendButton = document.getElementById('send-button');
+    const chatMessages = document.getElementById('chat-messages');
+    const modelSelector = document.getElementById('model-selector');
+    const helpButton = document.getElementById('help-button');
+    
+    // Onglets de navigation
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Base de connaissances
+    let knowledgeBase = {
+        "651-4": {
+            "general_response": "Le Renault 651-4 est un tracteur agricole produit par Renault Agriculture entre 1972 et 1980. Il est équipé d'un moteur MWM D227-4 de 65 ch et dispose de 4 roues motrices. C'est un modèle très apprécié pour sa robustesse et sa polyvalence.",
+            "commands": {
+                "description": "Le poste de commande du Renault 651-4 est ergonomique pour son époque, avec tous les leviers et commandes facilement accessibles depuis le siège du conducteur.",
+                "main_controls": {
+                    "Volant": "Direction assistée hydraulique, réglable en hauteur",
+                    "Levier de vitesses": "Situé à droite du conducteur, permet de sélectionner parmi 12 vitesses avant et 3 arrière",
+                    "Levier de gamme": "Situé à droite, permet de choisir entre vitesse lente, moyenne et rapide",
+                    "Levier de prise de force": "Situé à droite, permet d'engager la prise de force arrière",
+                    "Levier de relevage": "Situé à droite, contrôle le relevage hydraulique arrière"
+                }
+            },
+            "prise_de_force": {
+                "description": "La prise de force du Renault 651-4 permet d'entraîner des outils agricoles comme des faucheuses, des presses à balles ou des épandeurs.",
+                "specifications": {
+                    "Régimes": "540 et 1000 tr/min",
+                    "Type": "Indépendante",
+                    "Commande": "Mécanique par levier"
+                },
+                "utilisation": [
+                    "S'assurer que le tracteur est à l'arrêt et le moteur coupé avant de connecter un outil",
+                    "Vérifier que le protecteur de prise de force est en place",
+                    "Engager le levier de prise de force en position neutre"
+                ]
+            },
+            "differentiel": {
+                "description": "Le différentiel du Renault 651-4 permet aux roues arrière de tourner à des vitesses différentes lors des virages.",
+                "fonctionnement": "Le différentiel répartit le couple moteur entre les deux roues arrière, permettant à chacune de tourner à sa propre vitesse.",
+                "procedure_blocage": [
+                    "Le blocage du différentiel est utile lorsqu'une roue patine sur terrain glissant",
+                    "Réduire la vitesse du tracteur avant d'engager le blocage",
+                    "Appuyer sur la pédale de blocage du différentiel située à droite"
+                ]
+            }
+        },
+        "Super 7": {
+            "general_response": "Le Renault Super 7 est un tracteur agricole produit par Renault Agriculture dans les années 1960. Il est équipé d'un moteur Perkins P3 152 de 42 ch.",
+            "commands": {
+                "description": "Le poste de commande du Renault Super 7 est simple et fonctionnel, typique des tracteurs de cette époque.",
+                "main_controls": {
+                    "Volant": "Direction mécanique, non réglable",
+                    "Levier de vitesses": "Situé à droite du conducteur, permet de sélectionner parmi 8 vitesses avant et 2 arrière",
+                    "Levier de prise de force": "Situé à droite, permet d'engager la prise de force arrière"
+                }
+            },
+            "prise_de_force": {
+                "description": "La prise de force du Renault Super 7 permet d'entraîner des outils agricoles adaptés à la puissance du tracteur.",
+                "specifications": {
+                    "Régime": "540 tr/min",
+                    "Type": "Dépendante",
+                    "Commande": "Mécanique par levier"
+                },
+                "utilisation": [
+                    "S'assurer que le tracteur est à l'arrêt et le moteur coupé avant de connecter un outil",
+                    "Vérifier que le protecteur de prise de force est en place",
+                    "Engager le levier de prise de force"
+                ]
+            },
+            "differentiel": {
+                "description": "Le différentiel du Renault Super 7 permet aux roues arrière de tourner à des vitesses différentes lors des virages.",
+                "fonctionnement": "Le différentiel répartit le couple moteur entre les deux roues arrière, permettant à chacune de tourner à sa propre vitesse.",
+                "procedure_blocage": [
+                    "Le blocage du différentiel est utile lorsqu'une roue patine sur terrain glissant",
+                    "Réduire la vitesse du tracteur avant d'engager le blocage",
+                    "Tirer le levier de blocage du différentiel situé au centre"
+                ]
+            }
+        }
+    };
+    
+    // Modèle de tracteur actuel
+    let currentModel = "651-4";
+    
+    // Gestionnaires d'événements
+    sendButton.addEventListener('click', handleUserMessage);
+    chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
+    });
+    
+    modelSelector.addEventListener('change', function() {
+        currentModel = this.value;
+        displayModelChangeMessage();
+    });
+    
+    helpButton.addEventListener('click', displayHelpMessage);
+    
+    // Gestion des onglets
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Masquer tous les contenus d'onglets
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Retirer la classe active de tous les boutons
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Afficher le contenu de l'onglet sélectionné
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).style.display = 'block';
+            
+            // Ajouter la classe active au bouton cliqué
+            button.classList.add('active');
+        });
+    });
+    
+    // Afficher l'onglet par défaut (Spécifications)
+    document.getElementById('specifications-tab').style.display = 'block';
+    tabButtons[0].classList.add('active');
+    
+    // Fonction pour gérer les messages de l'utilisateur
+    function handleUserMessage() {
+        const userMessage = chatInput.value.trim();
+        if (userMessage === '') return;
+        
+        // Afficher le message de l'utilisateur
+        chatMessages.innerHTML += `
+            <div class="message user-message">
+                <p>${userMessage}</p>
+            </div>
+        `;
+        
+        // Vider l'input
+        chatInput.value = '';
+        
+        // Faire défiler vers le bas
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Générer une réponse
+        setTimeout(() => {
+            const botResponse = generateResponse(userMessage);
+            
+            // Afficher la réponse du bot
+            chatMessages.innerHTML += `
+                <div class="message bot-message">
+                    <p>${botResponse}</p>
+                </div>
+            `;
+            
+            // Faire défiler vers le bas
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 500);
+    }
+    
+    // Fonction pour générer une réponse
+    function generateResponse(userMessage) {
+        const normalizedMessage = userMessage.toLowerCase();
+        
+        // Vérifier si le message concerne les commandes ou le poste de conduite
+        if (normalizedMessage.includes('commande') || normalizedMessage.includes('poste de conduite') || normalizedMessage.includes('tableau de bord') || normalizedMessage.includes('levier')) {
+            return generateCommandResponse(normalizedMessage);
+        }
+        
+        // Vérifier si le message concerne la prise de force
+        if (normalizedMessage.includes('prise de force') || normalizedMessage.includes('pdf') || normalizedMessage.includes('pto')) {
+            return generatePriseDeForceResponse();
+        }
+        
+        // Vérifier si le message concerne le différentiel
+        if (normalizedMessage.includes('différentiel') || normalizedMessage.includes('blocage')) {
+            return generateDifferentielResponse();
+        }
+        
+        // Réponse par défaut basée sur le modèle actuel
+        return knowledgeBase[currentModel].general_response;
+    }
+    
+    // Fonction pour générer une réponse concernant les commandes
+    function generateCommandResponse(message) {
+        const commandsInfo = knowledgeBase[currentModel].commands;
+        let response = `<strong>Poste de commande du tracteur Renault ${currentModel}</strong><br><br>`;
+        response += commandsInfo.description + "<br><br>";
+        
+        // Ajouter des détails spécifiques sur les commandes principales
+        response += "<strong>Commandes principales :</strong><br>";
+        for (const command in commandsInfo.main_controls) {
+            response += `- <strong>${command}</strong> : ${commandsInfo.main_controls[command]}<br>`;
+        }
+        
+        return response;
+    }
+    
+    // Fonction pour générer une réponse concernant la prise de force
+    function generatePriseDeForceResponse() {
+        const pdfInfo = knowledgeBase[currentModel].prise_de_force;
+        let response = `<strong>Prise de force du tracteur Renault ${currentModel}</strong><br><br>`;
+        response += pdfInfo.description + "<br><br>";
+        
+        response += "<strong>Caractéristiques techniques :</strong><br>";
+        for (const spec in pdfInfo.specifications) {
+            response += `- <strong>${spec}</strong> : ${pdfInfo.specifications[spec]}<br>`;
+        }
+        
+        response += "<br><strong>Utilisation :</strong><br>";
+        for (const step of pdfInfo.utilisation) {
+            response += `- ${step}<br>`;
+        }
+        
+        return response;
+    }
+    
+    // Fonction pour générer une réponse concernant le différentiel
+    function generateDifferentielResponse() {
+        const diffInfo = knowledgeBase[currentModel].differentiel;
+        let response = `<strong>Différentiel du tracteur Renault ${currentModel}</strong><br><br>`;
+        response += diffInfo.description + "<br><br>";
+        
+        response += "<strong>Fonctionnement :</strong><br>" + diffInfo.fonctionnement + "<br><br>";
+        
+        response += "<strong>Procédure de blocage du différentiel :</strong><br>";
+        for (const step of diffInfo.procedure_blocage) {
+            response += `- ${step}<br>`;
+        }
+        
+        return response;
+    }
+    
+    // Fonction pour afficher un message de bienvenue
+    function displayWelcomeMessage() {
+        chatMessages.innerHTML = `
+            <div class="message bot-message">
+                <p>Bienvenue sur le chatbot des tracteurs Renault 651-4 et Super 7 ! Je peux vous fournir des informations détaillées sur ces deux modèles. Comment puis-je vous aider aujourd'hui ?</p>
+            </div>
+        `;
+    }
+    
+    // Fonction pour afficher un message lors du changement de modèle
+    function displayModelChangeMessage() {
+        chatMessages.innerHTML += `
+            <div class="message bot-message">
+                <p>Vous consultez maintenant les informations sur le tracteur Renault ${currentModel}. Comment puis-je vous aider ?</p>
+            </div>
+        `;
+        
+        // Faire défiler vers le bas
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Fonction pour afficher un message d'aide
+    function displayHelpMessage() {
+        chatMessages.innerHTML += `
+            <div class="message bot-message">
+                <p><strong>Aide à l'utilisation du chatbot</strong><br><br>
+                Vous pouvez me poser des questions sur les tracteurs Renault 651-4 et Super 7, par exemple :<br>
+                - "Quelles sont les caractéristiques du moteur ?"<br>
+                - "Comment fonctionne la prise de force ?"<br>
+                - "Explique-moi le poste de commande"<br>
+                - "Comment bloquer le différentiel ?"<br><br>
+                Utilisez le sélecteur en haut pour changer de modèle de tracteur.</p>
+            </div>
+        `;
+        
+        // Faire défiler vers le bas
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Afficher le message de bienvenue au chargement
+    displayWelcomeMessage();
+});
+    </script>
 </body>
 </html>
