@@ -194,6 +194,15 @@
                 max-width: 90%;
             }
         }
+        
+        /* Spécifications pour les deux modèles */
+        .specs-content {
+            display: none;
+        }
+        
+        .specs-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -231,85 +240,171 @@
         <div id="specifications-tab" class="tab-content">
             <h2>Spécifications Techniques</h2>
             
-            <h3>Moteur</h3>
-            <table>
-                <tr>
-                    <td>Modèle:</td>
-                    <td>MWM D227-4</td>
-                </tr>
-                <tr>
-                    <td>Type:</td>
-                    <td>Diesel 4 cylindres</td>
-                </tr>
-                <tr>
-                    <td>Puissance:</td>
-                    <td>65 ch (48 kW)</td>
-                </tr>
-                <tr>
-                    <td>Cylindrée:</td>
-                    <td>3770 cm³</td>
-                </tr>
-                <tr>
-                    <td>Refroidissement:</td>
-                    <td>Par eau</td>
-                </tr>
-            </table>
+            <!-- Spécifications pour le Renault 651-4 -->
+            <div id="specs-651-4" class="specs-content active">
+                <h3>Moteur</h3>
+                <table>
+                    <tr>
+                        <td>Modèle:</td>
+                        <td>MWM D227-4</td>
+                    </tr>
+                    <tr>
+                        <td>Type:</td>
+                        <td>Diesel 4 cylindres</td>
+                    </tr>
+                    <tr>
+                        <td>Puissance:</td>
+                        <td>65 ch (48 kW)</td>
+                    </tr>
+                    <tr>
+                        <td>Cylindrée:</td>
+                        <td>3770 cm³</td>
+                    </tr>
+                    <tr>
+                        <td>Refroidissement:</td>
+                        <td>Par eau</td>
+                    </tr>
+                </table>
+                
+                <h3>Transmission</h3>
+                <table>
+                    <tr>
+                        <td>Type:</td>
+                        <td>Mécanique</td>
+                    </tr>
+                    <tr>
+                        <td>Vitesses:</td>
+                        <td>12 avant / 3 arrière</td>
+                    </tr>
+                    <tr>
+                        <td>Embrayage:</td>
+                        <td>Monodisque à sec</td>
+                    </tr>
+                </table>
+                
+                <h3>Dimensions</h3>
+                <table>
+                    <tr>
+                        <td>Longueur:</td>
+                        <td>3617 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Largeur:</td>
+                        <td>1980 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Hauteur:</td>
+                        <td>2360 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Empattement:</td>
+                        <td>2242 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Poids:</td>
+                        <td>2945 kg</td>
+                    </tr>
+                </table>
+                
+                <h3>Hydraulique et PTO</h3>
+                <table>
+                    <tr>
+                        <td>Relevage:</td>
+                        <td>Tracto-Control</td>
+                    </tr>
+                    <tr>
+                        <td>Capacité de levage:</td>
+                        <td>2400 kg</td>
+                    </tr>
+                    <tr>
+                        <td>PTO arrière:</td>
+                        <td>540/1000 tr/min</td>
+                    </tr>
+                </table>
+            </div>
             
-            <h3>Transmission</h3>
-            <table>
-                <tr>
-                    <td>Type:</td>
-                    <td>Mécanique</td>
-                </tr>
-                <tr>
-                    <td>Vitesses:</td>
-                    <td>12 avant / 3 arrière</td>
-                </tr>
-                <tr>
-                    <td>Embrayage:</td>
-                    <td>Monodisque à sec</td>
-                </tr>
-            </table>
-            
-            <h3>Dimensions</h3>
-            <table>
-                <tr>
-                    <td>Longueur:</td>
-                    <td>3617 mm</td>
-                </tr>
-                <tr>
-                    <td>Largeur:</td>
-                    <td>1980 mm</td>
-                </tr>
-                <tr>
-                    <td>Hauteur:</td>
-                    <td>2360 mm</td>
-                </tr>
-                <tr>
-                    <td>Empattement:</td>
-                    <td>2242 mm</td>
-                </tr>
-                <tr>
-                    <td>Poids:</td>
-                    <td>2945 kg</td>
-                </tr>
-            </table>
-            
-            <h3>Hydraulique et PTO</h3>
-            <table>
-                <tr>
-                    <td>Relevage:</td>
-                    <td>Tracto-Control</td>
-                </tr>
-                <tr>
-                    <td>Capacité de levage:</td>
-                    <td>2400 kg</td>
-                </tr>
-                <tr>
-                    <td>PTO arrière:</td>
-                    <td>540/1000 tr/min</td>
-                </tr>
-            </table>
+            <!-- Spécifications pour le Renault Super 7 -->
+            <div id="specs-Super 7" class="specs-content">
+                <h3>Moteur</h3>
+                <table>
+                    <tr>
+                        <td>Modèle:</td>
+                        <td>Perkins P3 152</td>
+                    </tr>
+                    <tr>
+                        <td>Type:</td>
+                        <td>Diesel 3 cylindres</td>
+                    </tr>
+                    <tr>
+                        <td>Puissance:</td>
+                        <td>42 ch (31 kW)</td>
+                    </tr>
+                    <tr>
+                        <td>Cylindrée:</td>
+                        <td>2500 cm³</td>
+                    </tr>
+                    <tr>
+                        <td>Refroidissement:</td>
+                        <td>Par eau</td>
+                    </tr>
+                </table>
+                
+                <h3>Transmission</h3>
+                <table>
+                    <tr>
+                        <td>Type:</td>
+                        <td>Mécanique</td>
+                    </tr>
+                    <tr>
+                        <td>Vitesses:</td>
+                        <td>8 avant / 2 arrière</td>
+                    </tr>
+                    <tr>
+                        <td>Embrayage:</td>
+                        <td>Monodisque à sec</td>
+                    </tr>
+                </table>
+                
+                <h3>Dimensions</h3>
+                <table>
+                    <tr>
+                        <td>Longueur:</td>
+                        <td>3200 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Largeur:</td>
+                        <td>1650 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Hauteur:</td>
+                        <td>1950 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Empattement:</td>
+                        <td>1980 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Poids:</td>
+                        <td>1950 kg</td>
+                    </tr>
+                </table>
+                
+                <h3>Hydraulique et PTO</h3>
+                <table>
+                    <tr>
+                        <td>Relevage:</td>
+                        <td>Hydraulique</td>
+                    </tr>
+                    <tr>
+                        <td>Capacité de levage:</td>
+                        <td>1200 kg</td>
+                    </tr>
+                    <tr>
+                        <td>PTO arrière:</td>
+                        <td>540 tr/min</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         
         <div id="history-tab" class="tab-content">
@@ -454,6 +549,7 @@
             <h3>Renault Super 7</h3>
             <ul>
                 <li><a href="pdf/Renault_R7054_R7055_manuel_reparation.pdf" target="_blank">Manuel de réparation (30 pages)</a> - Contient les procédures de démontage, réparation et remontage des principaux composants.</li>
+                <li><a href="http://vieux.tracteurs.free.fr/pdf/Renault_super3D_super6D_guide_utilisation_entretien.pdf" target="_blank">Guide d'utilisation et d'entretien</a> - Manuel utilisateur officiel pour les modèles Super 3D, Super 6D et Super 7.</li>
             </ul>
             
             <p><strong>Note:</strong> Ces documents sont fournis à titre informatif et éducatif. Ils sont issus de sources publiques et ne sont pas des publications officielles de Renault Agriculture.</p>
@@ -560,6 +656,7 @@ document.addEventListener('DOMContentLoaded', function() {
     modelSelector.addEventListener('change', function() {
         currentModel = this.value;
         displayModelChangeMessage();
+        updateSpecificationsDisplay();
     });
     
     helpButton.addEventListener('click', displayHelpMessage);
@@ -585,6 +682,20 @@ document.addEventListener('DOMContentLoaded', function() {
             button.classList.add('active');
         });
     });
+    
+    // Fonction pour mettre à jour l'affichage des spécifications en fonction du modèle sélectionné
+    function updateSpecificationsDisplay() {
+        // Masquer toutes les spécifications
+        document.querySelectorAll('.specs-content').forEach(spec => {
+            spec.classList.remove('active');
+        });
+        
+        // Afficher les spécifications du modèle sélectionné
+        const specsElement = document.getElementById('specs-' + currentModel);
+        if (specsElement) {
+            specsElement.classList.add('active');
+        }
+    }
     
     // Afficher l'onglet par défaut (Spécifications)
     document.getElementById('specifications-tab').style.display = 'block';
